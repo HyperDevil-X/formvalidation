@@ -1,5 +1,5 @@
 <h1 align ="center">Form Validation</h1>
-<h2><a href="https://hyperdevil-x.github.io/Business/" target="_blank">Form Link</a></h2>
+<h2><a href="https://hyperdevil-x.github.io/formvalidation/" target="_blank">Form Link</a></h2>
 <img src="cover.PNG">
  <h3  align ="center"><b>Form Validation using HTML5,CSS3,JAVASCRIPT</b></h3>
  <br>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Form Validation</title>
+    <style>
+         #errormessage{
+            margin-top: 1%;
+            color: red;
+            font-weight: bold;
+        }
+        #sb:disabled{
+            background-color: grey;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="heading">Register</div>
+    <div class="form">
+        <form onsubmit="return submitform()">
+            <input type="text" name="firstname" id="first" placeholder="Enter Your Firstname" spellcheck="true" autocomplete="off" autofocus><br><br>
+            <input type="text" name="lastname" id="last" placeholder="Enter Your Lastname" spellcheck="true" autocomplete="off" ><br><br>
+            <input type="email" name="email" id="email" placeholder="Enter Your Email" spellcheck="true" autocomplete="off"  ><br><br>
+            <input type="password" name="pass" id="password" placeholder="Enter Your Password" spellcheck="true" autocomplete="off"  ><br><br>
+            <input type="password" name="conpass" id="confirmpass" placeholder="Confirm Your Password" spellcheck="true" autocomplete="off"  ><br><br>
+            <textarea name="address" id="address" placeholder="Enter Your Address"></textarea><br><br>
+            <input type="number" name="num" id="number" placeholder="Enter Your PhNo" spellcheck="true" autocomplete="off"  ><br><br>
+            <input type="submit" value="Submit" name="btn" id="sb" onclick="submitform()">
+        </form>
+    </div>
+    <div id="errormessage"></div>
+</div>
+    <script>
+        function submitform() 
+    {
+            var firstname = document.getElementById('first').value;
+            var lastname = document.getElementById('last').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var confirmpassword = document.getElementById('confirmpass').value; 
+            var address = document.getElementById('address').value;
+            var phnumber = document.getElementById('number').value;
+            var error = "";     
+                if (firstname === "") 
+                {
+                    error = "Please Enter the Firstname";
+                    document.getElementById('errormessage').innerHTML = error;
+                    return false; 
+                }
+                if(firstname.length < 3)
+                {
+                    error = "First name should be at least 3 characters";
+                    document.getElementById('errormessage').innerHTML = error;
+                    return false;
+
+                }
+                if(lastname === "")
+                {
+                    error = "Please Enter the Lastname";
+                    document.getElementById('errormessage').innerHTML = error;
+                    return false;
+                }
+                 if(lastname.length < 3)
+                {
+                    error = "Last name should be at least 3 characters";
+                    document.getElementById('errormessage').innerHTML = error;
+                    return false;
+
+                }
+                if(email === ""){
+                    error = "Please Enter the Email";
+                    document.getElementById('errormessage').innerHTML = error;
+                    return false;
+                }
+                 if(email.indexOf('@') == -1 || email.indexOf('.') == -1)
+                {
+                    error = "Invalid Email";
+                    document.getElementById('errormessage').innerHTML = error;
+                    return false;
+
+                }
+                if(password === "")
+                {
+                    error = "Please Enter the Password";
+                    document.getElementById('errormessage').innerHTML = error;
+                    return false;
+                }
+                 if(password.length < 6)
+                {
+                    error = "Password must be atleast 6 character";
+                    document.getElementById('errormessage').innerHTML = error;
+                    return false;
+                }
+                if(confirmpassword === "")
+                {
+                    error = "Please Enter the ConfirmPassword";
+                    document.getElementById('errormessage').innerHTML = error;
+                    return false;
+                }
+                 if(password != confirmpassword)
+                {
+                    error = "Password and Confirm Password should be same";
+                    document.getElementById('errormessage').innerHTML = error;
+                    return false;
+                }
+                if(address === "")
+                {
+                    error = "Please Enter the Address";
+                    document.getElementById('errormessage').innerHTML = error;
+                    return false;
+                }
+                 if(address.length < 3)
+                {
+                    error = "Address should be at least 3 characters";
+                    document.getElementById('errormessage').innerHTML = error;      
+                    return false;
+                }
+                 if(address.length > 60)
+                {
+                    error = "Address should not be more than 60 characters";
+                    document.getElementById('errormessage').innerHTML = error;
+                    return false;
+                }
+                if (phnumber === "")
+                {
+                    error = "Please Enter the Phone Number";
+                    document.getElementById('errormessage').innerHTML = error;
+                    return false;
+                }
+                 if(phnumber.length !== 10)
+                {
+                    error = "Phone number should be 10 digit";
+                    document.getElementById('errormessage').innerHTML = error;
+                    return false;
+                }
+                else{
+                     document.getElementById('errormessage').innerHTML="";
+                //   document.getElementById('sb').disable = false;
+                    alert("Submitted successfully");
+                    location.reload();
+                    return true;
+                }
+    }
+
+
+    // var str = "hi welcome to my world to do something";
+    // var y = str.indexOf("too") ;
+    //     document.write(y);
+    </script>    
+</body>
+</html>
+
